@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        /* Floating Instagram Button */
+.insta-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 64px;
+    height: 64px;
+    background: #00000093;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.45);
+    text-decoration: none;
+    z-index: 3000;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.insta-btn i {
+    font-size: 28px;
+    color: #ff0000;
+}
+
+.insta-btn:hover {
+    transform: scale(1.12);
+    box-shadow: 0px 12px 30px rgba(255,0,0,0.18);
+}
+
+        /* Fullscreen Video Background */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sidebar */
+        .offcanvas {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        .offcanvas-body a {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .offcanvas-body a:hover {
+            background-color: #ff2222;
+        }
+
+        /* Sidebar Toggle Button */
+        .menu-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            font-size: 40px;
+            background: transparent;
+            border: none;
+            color: white;
+            z-index: 1050;
+        }
+
+        /* Top Image */
+.top-image {
+    width: 30%; /* Standard width for desktop */
+    display: block;
+    margin: 30px auto;
+}
+
+/* Media Query for Small Devices (Tablets and Phones) */
+@media screen and (max-width: 768px) {
+    .top-image {
+        width: 80%; /* Increases width to 80% on smaller screens so it remains visible */
+    }
+}
+
+        /* Card Container */
+        .team-card {
+            width: 310px;
+            height: 200px;
+            perspective: 1000px;
+            margin: 20px;
+        }
+
+        /* Inner Card with Flip Effect */
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            box-shadow: 0px 0px 15px #ff2222;
+            border-radius: 10px;
+        }
+
+        .team-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Front & Back Sides */
+        .card-front, .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .card-front {
+            background: linear-gradient(125deg, #ffffff8b, #ffffff5e);
+            color: white;
+        }
+
+        .card-back {
+            background: linear-gradient(125deg, #ff2222, #22aaff);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* Image Styling */
+        .card-front img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            object-fit: cover;
+        }
+
+        /* Neon Glow Hover Effect */
+        .team-card:hover {
+            box-shadow: 0 0 15px #ff2222;
+            transition: 0.4s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://www.instagram.com/ieee_comsockec/?igsh=MXVkMmxjaTlxcmp3bw%3D%3D" 
+   target="_blank" 
+   class="insta-btn">
+    <i class="bi bi-instagram"></i>
+</a>
+
+    <!-- Video Background -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Top Image -->
+    <img src="our team.png" alt="Our Team" class="top-image">
+
+    <!-- Sidebar Toggle Button -->
+    <button class="btn menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+        ☰
+    </button>
+
+    <!-- Offcanvas Sidebar -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar">
+        <div class="offcanvas-header">
+            <h4><button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button></h4>
+        </div>
+        <div class="offcanvas-body">
+            <h3><a href="home.html">Home</a></h3>
+            <h3><a href="events.html">Events & Calender</a></h3>
+            <h3><a href="sponsors.html">Sponsors</a></h3>
+            <h3><a href="about.html">About Us</a></h3>
+            <h3><a href="#">Contact</a></h3>
+        </div>
+    </div>
+
+    <!-- Team Cards -->
+    <div class="container">
+        <!-- Row 1 (2 Cards) -->
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="team-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="SA1.png" alt="LOKESH SARAVANAN">
+                            <h3>LOKESH SARAVANAN</h3>
+                            <p>CHAIRMAN</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Phone: +91 8248776069</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="team-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="GT Sir.jpg" alt="G.Thirunavukkarasu">
+                            <h3>G.THIRUNAVUKKARASU</h3>
+                            <p>FACULTY COORDINATOR</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Phone: +91 9489234282</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="team-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="darshini.jpg" alt="LOKESH SARAVANAN">
+                            <h3>DARSHINI R</h3>
+                            <p>VICE CHAIRMAN</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Phone: +91 7904963803</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- DAY 1 Title -->
+<!-- <img src="day1.png" alt="Day 1" class="top-image"> -->
+    <img src="STDC.png" alt="Top Banner" class="top-image" id="topImage">
+
+
+<div class="row justify-content-center">
+
+    <!-- Card 1 -->
+    <div class="col-md-3">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="B_MD.jpeg.jpg">
+                    <!-- <img src="day1-img1.jpg" alt="Member 1"> -->
+                    <h3>BARATH MD</h3>
+                    <p>STUDENT AFFAIRS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6369978859</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-3">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="ISHANTHINI R.jpg" alt="Member 2">
+                    <h3>ISHANTHINI R</h3>
+                    <p>STUDENT AFFAIRS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 8608929189</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-3">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="Adhilakshmi.jpg" alt="Member 3">
+                    <h3>ADHILAKSHMI S</h3>
+                    <p>STUDENT AFFAIRS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9842856869</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- DAY 2 Title -->
+<!-- <img src="day2.png" alt="Day 2" class="top-image"> -->
+
+<div class="row justify-content-center">
+
+    <!-- Card 1 -->
+    <div class="col-md-3">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="Sampathkumar S.jpg" alt="Member 1">
+                    <h3>SAMPTHKUMAR S</h3>
+                    <p>STUDENT AFFAIRS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9677585698</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-3">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="pooviga.jpg" alt="Member 2">
+                    <h3>POOVIGA N</h3>
+                    <p>STUDENT AFFAIRS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 7598142739</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-3">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="SK.jpg" alt="">
+                    <!-- <img src="day2-img3.jpg" alt="Member 3"> -->
+                    <h3>ADITHYAN SK</h3>
+                    <p>STUDENT AFFAIRS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6374814379</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+        <!-- Top Image -->
+        <img src="HEADCOORDINATORS.png" alt="Top Banner" class="top-image" id="topImage">
+
+        
+        <!-- ROW 1 -->
+<div class="row justify-content-center">
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="vijay.jpg">
+                    <h3>VIJAY VARMA S</h3>
+                    <p>PAPER PRESENTATION</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 8870898823</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="harini.jpg">
+                    <h3>HARINI CE</h3>
+                    <p>PAPER PRESENTATION</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 7010027366</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="arthi.png">
+                    <h3>ARTHISRI B</h3>
+                    <p>PROJECT PRESENTATION</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6381534771</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+        <!-- Row 2, 3, 4 (4 Cards Each) -->
+        <!-- ROW 2 -->
+<div class="row justify-content-center">
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="pooviga.jpg">
+                    <h3>POOVIGA N</h3>
+                    <p>SENSOR CHALLENGE</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 7598142739</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="Adhilakshmi.jpg">
+                    <h3>ADHILAKSHMI S</h3>
+                    <p>SENSOR CHALLENGE</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9842856869</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="guna.jpg">
+                    <h3>GUNA CHANDRU</h3>
+                    <p>CODING CHALLENGE</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6385330466</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="pavitra.png">
+                    <h3>PAVITHRA S</h3>
+                    <p>CODING CHALLENGE</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 8838741589</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- ROW 3 -->
+<div class="row justify-content-center">
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="dharsh_3.jpg">
+                    <h3>DHARSHINI S</h3>
+                    <p>RC PLANE CHALLENGE</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9524762021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="Divyadharshini.jpg">
+                    <h3>DIVYADHARSHINI V</h3>
+                    <p>RC PLANE CHALLENGE</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9342565992</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="SK.jpg">
+                    <!-- <img src="IMG10.jpg"> -->
+                    <h3>ADITHYAN SK</h3>
+                    <p>HACKATHON</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6374814379</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="sahana.jpg">
+                    <h3>SAHANA VARSHINI</h3>
+                    <p>HACKATHON</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9442267643</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+           <!-- Top Image -->
+        <img src="event1.png" alt="Top Banner" class="top-image" id="topImage">
+
+        
+        <!-- ROW 1 -->
+<div class="row justify-content-center">
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="BAVADHARANI S(24ECR028).jpg">
+                    <h3>BAVADHARANI S </h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9500936034</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="DHANESHWARAN S 24ECR041.jpg">
+                    <h3>DHANESWARAN S </h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 8870730440</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row justify-content-center">
+<div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="DHANASHREE D_24ECR040.jpg">
+                    <h3>DHANASHREE D </h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 638273841</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="Gokul V 24ECR062.jpg">
+                    <h3>GOKUL V </h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9629004931</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="JAYANI.jpg">
+                    <h3>JAYANIVASH P </h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9442249452</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Row 2, 3, 4 (4 Cards Each) -->
+        <!-- ROW 2 -->
+<div class="row justify-content-center">
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="JerishImmanuel.J-24ECR091.jpg">
+                    <h3>JERISH IMMANUEL</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6385304648</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="GURUVIGNESH P(24ECR068).png">
+                    <h3>GURUVIGNESH P </h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9629004931</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="LAKSHITA K K_24ECR114.jpg">
+                    <h3>LAKSHITA K K</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9894527965</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="KALPITHAA SREE E 24ECR092.jpg">
+                    <h3>KALPITHAA SREE</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 7010041651</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- ROW 3 -->
+<div class="row justify-content-center">
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="SUTHARSHAN T {24ECL254}.jpg">
+                    <h3>SUTHARSHAN T</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 8072109886</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="MANOJ.V - 24ECR122.jpg">
+                    <h3>MANOJ V</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6381283831</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="RAJANANDHINI P 24ECR164.jpg">
+                    <!-- <img src="IMG10.jpg"> -->
+                    <h3>RAJANANDHINI P</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9486816304</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="MITHRA T 24ECR126.jpg">
+                    <h3>MITHRA T</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6382893793</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+
+<div class="row justify-content-center">
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="SRIRAM KANNAN S 24ECR198.jpg">
+                    <h3>SRIRAM KANNAN</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9363267561</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="SELVAKUMARI M-24ECR182.jpg">
+                    <h3>SELVAKUMARI</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9500918663</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="SARVIKA S - 24ECR181.jpg">
+                    <!-- <img src="IMG10.jpg"> -->
+                    <h3>SARVIKA S</h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 8870506069</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="Sudhakaran_S(24ECR205).jpg">
+                    <h3>SUDHAKARAN S </h3>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 8973393837</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>    
+
+       <!-- Top Image -->
+<img src="SOM.png" alt="Top Banner" class="top-image" id="topImage">
+
+
+<!-- ROW 1 (4 CARDS) -->
+<div class="row justify-content-center">
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="SK.jpg">
+                    <h3>ADITHYAN SK</h3>
+                    <p>MEDIA, PUBLICITY & AMBASSADORS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6374814379</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="Adhilakshmi.jpg">
+                    <h3>ADHILAKSHMI S</h3>
+                    <p>WEB, PUBLICITY & AMBASSADORS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9842856869</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="B_MD.jpeg.jpg">
+                    <h3>BARATH MD</h3>
+                    <p>WEB, MEDIA & SPONSORS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6369978859</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ROW 2 (3 CARDS) -->
+<div class="row justify-content-center">
+<div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="GUNA.jpg">
+                    <h3>GUNA CHANDRU</h3>
+                    <p>WEBSITE</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 6385330466</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="AKS.jpg">
+                    <h3>AKASH V</h3>
+                    <p>MEDIA</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone:+91 7708424178</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="dharsh_3.jpg">
+                    <h3>DHARSHINI S</h3>
+                    <p>WEBSITE & SPONSORS</p>
+                </div>
+                <div class="card-back">
+                    <p>Phone: +91 9524762021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <!-- JavaScript for Scroll Hide Effect -->
+        <script>
+            let lastScrollTop = 0;
+            const topImage = document.getElementById("topImage");
+    
+            window.addEventListener("scroll", function () {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+                if (scrollTop > lastScrollTop) {
+                    topImage.classList.add("hidden");
+                } else {
+                    topImage.classList.remove("hidden");
+                }
+    
+                lastScrollTop = scrollTop;
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuButton = document.querySelector(".menu-btn");
+                const offCanvas = document.getElementById("sidebar");
+    
+                offCanvas.addEventListener("show.bs.offcanvas", function () {
+                    menuButton.style.display = "none";
+                });
+                offCanvas.addEventListener("hidden.bs.offcanvas", function () {
+                    menuButton.style.display = "block";
+                });
+            });
+        </script>
+
+    <footer style="
+    background:#00000000;
+    color:white;
+    text-align:center;
+    padding:25px 10px;
+    margin-top:40px;
+    font-family:Arial, sans-serif;">
+    
+    <p style="margin:0; font-size:14px;">
+        © 2025 IEEE COMSOC KEC. All Rights Reserved
+    </p>
+
+    <p style="margin:5px 0 0; font-size:18px; font-weight:600;">
+        Made with <span style='color:#ff4444;'>❤️</span> By Barath MD, Dharshini S, Adhilakshmi S & Guna Chandru
+    </p>
+
+</footer>
+</body>
+</html>
